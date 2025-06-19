@@ -1,5 +1,6 @@
 
 import { Sequelize } from 'sequelize-typescript'
+import { User } from 'src/users/user.model';
 
 export const databaseConnect = [
     {
@@ -13,7 +14,7 @@ export const databaseConnect = [
                 password: process.env.DB_PASSWORD,
                 database: "crm_panel"
             })
-            sequelize.addModels([])
+            sequelize.addModels([User])
             await sequelize.sync();
             return sequelize;
         },
